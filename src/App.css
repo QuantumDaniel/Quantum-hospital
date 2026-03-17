@@ -129,6 +129,91 @@
        }
    }
 
+   @keyframes fadeUp {
+       from {
+           opacity: 0;
+           transform: translateY(28px);
+       }
+
+       to {
+           opacity: 1;
+           transform: translateY(0);
+       }
+   }
+
+   @keyframes fadeIn {
+       from {
+           opacity: 0;
+       }
+
+       to {
+           opacity: 1;
+       }
+   }
+
+   @keyframes pulse {
+
+       0%,
+       100% {
+           opacity: 1;
+       }
+
+       50% {
+           opacity: 0.4;
+       }
+   }
+
+   @keyframes slideIn {
+       from {
+           transform: translateX(-16px);
+           opacity: 0;
+       }
+
+       to {
+           transform: translateX(0);
+           opacity: 1;
+       }
+   }
+
+   @keyframes float {
+
+       0%,
+       100% {
+           transform: translateY(0);
+       }
+
+       50% {
+           transform: translateY(-8px);
+       }
+   }
+
+   @keyframes chatBounce {
+
+       0%,
+       100% {
+           transform: scale(1);
+       }
+
+       50% {
+           transform: scale(1.06);
+       }
+   }
+
+   @keyframes typing {
+
+       0%,
+       60%,
+       100% {
+           opacity: 0;
+           transform: translateY(0);
+       }
+
+       30% {
+           opacity: 1;
+           transform: translateY(-4px);
+       }
+   }
+
    .anim-1 {
        animation: fadeUp .6s ease both;
    }
@@ -1529,6 +1614,7 @@
    @media (max-width: 768px) {
        .navbar {
            padding: 14px 20px;
+
        }
 
        .nav-brand-sub {

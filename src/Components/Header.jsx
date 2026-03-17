@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import '../App.css';
+import { useState, useEffect } from 'react';
+import './Header.css'
 
 
 
@@ -8,10 +8,24 @@ import '../App.css';
 
 function Header() {
     const [expanded, setExpanded] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        function checkScroll() {
+            setScrolled(window.scrollY > 60)
+        }
+        window.addEventListener("scroll", checkScroll)
+    }, [])
 
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light hospital-navbar">
+        <nav className={`navbar navbar-expand-lg navbar-light hospital-navbar header ${scrolled ? "scrolled" : ""}`}>
+            <div className="hero-decor">
+                <div className="hero-circle-1"></div>
+                <div className="hero-circle-2"></div>
+                <div className="hero-circle-3"></div>
+                <div className="hero-cross"><div className="hero-cross-v"></div><div className="hero-cross-h"></div></div>
+            </div>
             <div className="container-fluid">
                 <a href="#main-content" className="nav-brand">
                     <div className="nav-logo">🏥</div>
@@ -62,14 +76,15 @@ function Header() {
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link nav-animated" href="#">
-                                About
+                            <a className="nav-link nav-animated" href="#services">
+                                Services
+
                             </a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link nav-animated" href="#">
-                                Contact
+                            <a className="nav-link nav-animated" href="#departments">
+                                Departments
                             </a>
                         </li>
 
