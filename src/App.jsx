@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './Components/Header';
 import './App.css'
 import HeroSection from './Components/HeroSection';
@@ -6,6 +6,8 @@ import Services from './Components/Services';
 import DepartmentList from './Components/DepartmentList';
 import Cta from './Components/Cta';
 import Footer from './Components/Footer';
+import Booking from './Components/Booking';
+import './Components/Booking.css';
 
 function App() {
 
@@ -21,7 +23,8 @@ function App() {
     { id: "adult-medical", name: "Adult Medical Ward", icon: "🏨", color: "#0369a1", colorPale: "#e0f2fe", tagline: "Comprehensive Inpatient Medicine", hero: "linear-gradient(135deg, #0c4a6e 0%, #0369a1 60%, #0ea5e9 100%)", description: "Our Adult Medical Ward provides high-quality inpatient care for adults with a wide range of medical conditions requiring hospitalisation and monitoring.", services: ["General Internal Medicine", "Cardiology Care", "Respiratory Medicine", "Neurology", "Gastroenterology", "Nephrology (Kidney Care)", "Infectious Disease Management", "Diabetes & Endocrine Disorders"], stats: [{ label: "Beds", value: "120" }, { label: "Physicians", value: "25" }, { label: "Avg. Stay (Days)", value: "4.2" }], image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&q=80" },
     { id: "administrative", name: "Administrative Dept.", icon: "🏛️", color: "#374151", colorPale: "#f9fafb", tagline: "Seamless Healthcare Administration", hero: "linear-gradient(135deg, #111827 0%, #374151 60%, #6b7280 100%)", description: "Our Administrative Department ensures smooth hospital operations, patient registration, records management, billing, and overall institutional governance.", services: ["Patient Registration & Admission", "Medical Records Management", "Health Insurance & NHIS Processing", "Billing & Accounts", "HR & Staff Management", "Hospital Card Issuance", "Complaints & Patient Relations", "Quality Assurance & Compliance"], stats: [{ label: "Staff", value: "60+" }, { label: "Records Managed", value: "50,000+" }, { label: "Daily Registrations", value: "100+" }], image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" },
   ];
-
+  const [display, setDisplay] = useState(false);
+  const [department, setDepartment] = useState("");
 
   const C = {
     bg: "#f7fafc",
@@ -50,18 +53,28 @@ function App() {
     shadowLg: "rgba(15,41,66,0.18)",
   };
 
+  function closeModal() {
+    setDisplay(false);
+  }
+  function openModal() {
+    setDisplay(true);
+  }
+  function chooseDepartment(dep) {
+    setDepartment(dep)
+  };
+
+
   return (
     <>
-      <Header />
-      <HeroSection />
+      <Header openModal={openModal} display={display} />
+      {display && <Booking closeModal={closeModal} display={display} chooseDepartment={chooseDepartment} department={department} />}
+      <HeroSection openModal={openModal} display={display} />
       <Services C={C} />
       <DepartmentList C={C} departments={departments} />
       <Cta C={C} />
       <Footer C={C} departments={departments} />
-
-
     </>
   )
 }
 
-export default App
+export default App;

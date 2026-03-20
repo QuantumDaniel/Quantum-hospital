@@ -6,7 +6,7 @@ import './Header.css'
 
 
 
-function Header() {
+function Header({ openModal }) {
     const [expanded, setExpanded] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -16,8 +16,6 @@ function Header() {
         }
         window.addEventListener("scroll", checkScroll)
     }, [])
-
-
     return (
         <nav className={`navbar navbar-expand-lg navbar-light hospital-navbar header ${scrolled ? "scrolled" : ""}`}>
             <div className="hero-decor">
@@ -91,17 +89,9 @@ function Header() {
                     </ul>
                 </div>
                 <div className="nav-actions">
-                    <a href="#modal-appt" className="btn btn-outline btn-info rounded-4 background border ">📅 Appointments</a>
+                    <a href="#modal-appt" className="btn btn-outline btn-info rounded-4 background border " onClick={openModal} >📅 Appointments</a>
                     <a href="#modal-card" className="btn btn-primary rounded-4  ">💳 Get Hospital Card</a>
                 </div>
-
-
-
-
-
-
-
-
 
             </div>
 
