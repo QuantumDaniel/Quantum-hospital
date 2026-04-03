@@ -345,7 +345,12 @@
        overflow: hidden;
        display: flex;
        align-items: center;
-       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 45%, #0d5c6b 100%);
+       /* background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light), url('assets\image2.jpg') 45%, #0d5c6b 100%);*/
+       /*background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8), url('assets\image2.jpg'));*/
+       background-image: url('assets\image2.jpg');
+       background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
    }
 
    .hero-decor {
@@ -1677,4 +1682,21 @@
        .modal-box {
            margin: 16px;
        }
+   }
+
+   grid-service {
+       opacity: 0;
+       transform: translateY(50px);
+       animation: riseUp 1s forwards;
+       animation-delay: 0.5s;
+
+   }
+
+   @keyframes riseUp {
+       to {
+           opacity: 1;
+           transform: translaY(0);
+
+       }
+
    }

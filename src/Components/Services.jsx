@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function Services({ C }) {
     const [services, setServices] = useState([{
@@ -35,6 +35,18 @@ function Services({ C }) {
 
     }]);
 
+    const ref = useRef(null);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+            { threshold: 0.2 }
+        );
+        if (ref.current) observer.observe(ref.current);
+        return () => observer.disconnect();
+    }, []);
+
 
 
 
@@ -47,9 +59,13 @@ function Services({ C }) {
                     <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 700, color: C.navy }}>Comprehensive Hospital Services</h2>
                     <p style={{ color: C.textMuted, maxWidth: 480, margin: "16px auto 0", lineHeight: 1.8 }}>Everything you need for your health and wellbeing, all under one roof.</p>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }} >
                     {services.map(s => (
-                        <div key={s.title} style={{ background: C.bg, border: `1px solid ${C.border}`, borderRadius: 20, padding: 26, transition: "all 0.3s", cursor: "default" }}
+                        <div className="grid-service" ref={ref} key={s.title} style={{
+                            background: C.bg, border: `1px solid ${C.border}`, borderRadius: 20, padding: 26, transition: "all 0.3s", cursor: "default", opacity: visible ? 1 : 0,
+                            transform: visible ? "translateY(0)" : "translateY(40px)",
+                            transition: "opacity 0.6s ease, transform 0.6s ease",
+                        }}
                             onMouseEnter={e => { e.currentTarget.style.border = `1px solid ${C.teal}50`; e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = `0 12px 32px ${C.shadow}`; e.currentTarget.style.background = C.white; }}
                             onMouseLeave={e => { e.currentTarget.style.border = `1px solid ${C.border}`; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.background = C.bg; }}>
                             <div style={{ fontSize: 38, marginBottom: 14 }}>{s.icon}</div>

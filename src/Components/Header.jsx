@@ -6,7 +6,7 @@ import './Header.css'
 
 
 
-function Header({ openModal }) {
+function Header({ openModal2, openModal }) {
     const [expanded, setExpanded] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -89,8 +89,8 @@ function Header({ openModal }) {
                     </ul>
                 </div>
                 <div className="nav-actions">
-                    <a href="#modal-appt" className="btn btn-outline btn-info rounded-4 background border " onClick={openModal} >📅 Appointments</a>
-                    <a href="#modal-card" className="btn btn-primary rounded-4  ">💳 Get Hospital Card</a>
+                    <a href="#modal-appt" className="btn btn-outline btn-info rounded-4 border " onClick={openModal} >📅 Appointments</a>
+                    <a href="#modal-card" className="btn btn-primary rounded-4  " onClick={openModal2}>💳 Get Hospital Card</a>
                 </div>
 
             </div>

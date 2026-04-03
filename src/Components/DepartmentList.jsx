@@ -1,14 +1,35 @@
+import { useEffect, useRef, useState } from "react";
+
 function DepartmentList({ C, departments }) {
+
+    const ref = useRef(null);
+    const [visible, setVisible] = useState(false);
+
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+            { threshold: 0.2 }
+        );
+        if (ref.current) observer.observe(ref.current);
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <section style={{ padding: "90px 48px", background: C.bgSection }} id='departments'>
             <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-                <div style={{ textAlign: "center", marginBottom: 56 }}>
+                <div ref={ref} style={{
+                    textAlign: "center", marginBottom: 56, opacity: visible ? 1 : 0,
+                    transform: visible ? "translateY(0)" : "translateY(40px)",
+                    transition: "opacity 0.6s ease, transform 0.6s ease",
+                }}>
                     <div style={{ display: "inline-block", background: C.tealPale, border: `1px solid ${C.teal}40`, color: C.teal, padding: "5px 18px", borderRadius: 20, fontSize: 12, marginBottom: 16, letterSpacing: 1, textTransform: "uppercase", fontWeight: 600 }}>Our Departments</div>
                     <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 700, color: C.navy }}>Specialised Care for Every Need</h2>
                     <p style={{ color: C.textMuted, maxWidth: 480, margin: "16px auto 0", lineHeight: 1.8 }}>Click on any department to explore the full range of services we provide.</p>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 24 }}>
+                <div style={{
+                    display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 24
+                }}>
                     {departments.map((dept, i) => (
                         <div key={dept.id} style={{ background: C.white, borderRadius: 24, overflow: "hidden", border: `1px solid ${C.border}`, transition: "all 0.4s ease", cursor: "pointer", animation: `fadeUp 0.5s ease ${i * 0.06}s both` }}
                             onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-7px)"; e.currentTarget.style.border = `1px solid ${dept.color}60`; e.currentTarget.style.boxShadow = `0 24px 48px ${C.shadowMd}`; }}
