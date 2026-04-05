@@ -16,3 +16,47 @@
     border-style: solid;
     border-color: #6c757d;
 }
+
+.active {
+    background: rgb(203, 241, 203);
+    border-color: black;
+}
+
+.name {
+    margin-right: 47%;
+
+}
+
+.name1 {
+    margin-right: 55%;
+}
+
+.name-input {
+    background: mediumturquoise;
+    border-style: none;
+    border-radius: 10px;
+    width: 70%;
+    height: 7vh;
+
+}
+
+.name-input:focus {
+    border: none;
+    outline: none;
+
+}
+
+.name-input::placeholder {
+    padding: 0 20px;
+    color: white;
+}
+
+.submit {
+    font-size: xx-large;
+
+}
+
+.rose {
+    font-size: 70px;
+    margin-top: 40px;
+}
