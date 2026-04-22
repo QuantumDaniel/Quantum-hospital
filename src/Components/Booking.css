@@ -1,0 +1,421 @@
+:root {
+    --teal: #0d7c7b;
+    --teal-light: #12a8a6;
+    --teal-pale: #e6f7f7;
+    --navy: #0f2942;
+    --bg-alt: #edf2f7;
+    --border: #e2e8f0;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'DM Sans', sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: #f0f7f7;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Trigger button (demo only) ── */
+.btn-open {
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    border: none;
+    color: #fff;
+    padding: 14px 36px;
+    border-radius: 30px;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(13, 124, 123, 0.4);
+    transition: all .25s;
+    cursor: pointer;
+}
+
+.btn-open:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(13, 124, 123, 0.45);
+    color: #fff;
+}
+
+/* ── Modal shell ── */
+.appt-modal .modal-content {
+    border: none;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 28px 72px rgba(15, 41, 66, 0.2);
+    font-family: var(--font-sans);
+}
+
+/* ── Modal header ── */
+.appt-modal .modal-header {
+    background: linear-gradient(135deg, #1e3a8a, #1e40af, #3b82f6);
+    border-bottom: none;
+    padding: 26px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative circles inside header */
+.appt-modal .modal-header::before,
+.appt-modal .modal-header::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    pointer-events: none;
+}
+
+.appt-modal .modal-header::before {
+    width: 200px;
+    height: 200px;
+    top: -80px;
+    right: -40px;
+}
+
+.appt-modal .modal-header::after {
+    width: 120px;
+    height: 120px;
+    bottom: -60px;
+    left: 30px;
+}
+
+.appt-modal .modal-title {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.appt-modal .modal-subtitle {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.78);
+    margin-top: 3px;
+}
+
+.appt-modal .modal-header-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.appt-modal .btn-close {
+    filter: invert(1) brightness(2);
+    opacity: .75;
+    position: relative;
+    z-index: 1;
+}
+
+.appt-modal .btn-close:hover {
+    opacity: 1;
+}
+
+/* ── Modal body ── */
+.appt-modal .modal-body {
+    padding: 28px 30px;
+    background: #fff;
+}
+
+/* ── Step badge ── */
+.step-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #eff6ff;
+    border: 1px solid rgba(30, 64, 175, 0.2);
+    color: #1e40af;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.step-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #1e40af;
+}
+
+/* ── Section divider ── */
+.form-section-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ── Form controls ── */
+.appt-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 6px;
+}
+
+.appt-input,
+.appt-select,
+.appt-textarea {
+    width: 100%;
+    background: var(--bg-alt);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 11px 15px;
+    color: #1a202c;
+    font-size: 14px;
+    font-family: var(--font-sans);
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.appt-input:focus,
+.appt-select:focus,
+.appt-textarea:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(13, 124, 123, 0.12);
+    background: #fff;
+}
+
+.appt-input::placeholder,
+.appt-textarea::placeholder {
+    color: #a0aec0;
+}
+
+.appt-textarea {
+    resize: none;
+}
+
+/* Custom select arrow */
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '▾';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #718096;
+    pointer-events: none;
+    font-size: 14px;
+}
+
+/* ── Department chips ── */
+.dept-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.dept-chip {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--bg-alt);
+    color: #4a5568;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s;
+    white-space: nowrap;
+    font-family: var(--font-sans);
+}
+
+
+
+.dept-chip.selected {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+}
+
+/* ── Time slot grid ── */
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.time-slot {
+    padding: 9px 4px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    background: var(--bg-alt);
+    color: #4a5568;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: all .2s;
+    font-family: var(--font-sans);
+}
+
+.time-slot:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    background: var(--teal-pale);
+}
+
+.time-slot.selected {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+}
+
+.time-slot.unavailable {
+    opacity: .4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ── Submit button ── */
+.btn-confirm {
+    width: 100%;
+    margin-top: 24px;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    border: none;
+    color: #fff;
+    padding: 14px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: all .25s;
+    box-shadow: 0 6px 18px rgba(30, 64, 175, 0.35);
+    letter-spacing: .3px;
+}
+
+.btn-confirm:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(30, 64, 175, 0.42);
+}
+
+/* ── Footer note ── */
+.modal-footer-note {
+    background: #f8fafc;
+    border-top: 1px solid var(--border);
+    padding: 14px 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: #718096;
+}
+
+.modal-footer-note .note-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--teal-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.booking-header {
+    position: fixed;
+    top: 100px;
+    z-index: 10000;
+    left: 50%;
+    right: 10%;
+    height: 80vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 10px rgba(255, 200, 255, 1);
+}
+
+.display {
+    display: none;
+}
+
+.modal-headery {
+
+    z-index: 10000;
+    width: 40%;
+    border-radius: 30px 30px 0 0;
+    padding: 0 20px;
+
+}
+
+.modal-body {
+    top: 100px;
+    padding: 5px 20px 50px !important;
+}
+
+.modal-title,
+.modal-subtitle {
+    margin-left: 30%;
+}
+
+.close-button {
+    margin-left: 95%;
+    margin-top: 10px;
+}
+
+.modal-body2 {
+    margin-top: 150px !important;
+    padding: 0 20px;
+}
+
+.choose {
+    background-color: rgb(239, 239, 201) !important
+}
+
+
+@media (max-width:920px) {
+    .booking-header {
+        top: 120px;
+        left: 5%;
+        right: 5%;
+        height: 80vh;
+    }
+
+    .modal-body {
+        top: 200px;
+    }
+
+    .modal-headery {
+        width: 90%;
+        padding: 0 20px;
+
+
+    }
+
+    .close-button {
+        margin-left: 95%;
+        margin-top: 10px;
+    }
+
+    .card-plan {
+        margin-top: 30px;
+    }
+
+    .modal-title {
+        margin-left: 2%;
+    }
+
+    .modal-subtitle {
+        margin-left: 2%;
+    }
+}
