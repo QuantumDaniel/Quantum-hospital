@@ -1,0 +1,74 @@
+.chart-container {
+    position: fixed;
+    width: 400px;
+    right: 20px;
+
+
+    border: 2px solid #000;
+    height: 60vh;
+    bottom: 90px;
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+.chart-input {
+    border-radius: 15px;
+    width: 60%;
+    margin-right: 10px;
+    height: 30px;
+
+}
+
+.input-container {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+
+}
+
+.send-button {
+    border-radius: 20px;
+}
+
+.change-position {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    font-style: italic;
+}
+
+.input-container2 {
+
+    bottom: 250px !important;
+}
+
+.change-position2 {
+    bottom: 248px !important;
+}
+
+.bot-container {
+    background: rgb(241, 236, 236) !important;
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px 15px 15px 0 !important;
+    margin-top: 5px;
+    width: 70%;
+    font-size: 13px;
+    margin-left: 12px;
+
+}
+
+.human-container {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 30px 30px 0 30px !important;
+    margin-top: 10px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: 15px;
+    text-justify: center;
+
+
+}

@@ -1,16 +1,14 @@
 
 import "./ChartButton.css";
-function ChartButton({ toggleChart }) {
+function ChartButton() {
 
     return (
 
         <>
-            <button className="btn btn-primary rounded-4  chart-button" title="chart with us" onClick={toggleChart}>
+            <button className="btn btn-primary rounded-4  chart-button">
                 <i className="bi bi-chat-dots me-2"></i>
-
+                Message
             </button>
-
-
 
         </>
     )

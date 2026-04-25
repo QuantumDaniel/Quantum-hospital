@@ -12,6 +12,7 @@ import HospitalVideo from './Components/Videos';
 import HospitalCard from './Components/HospitalCard';
 import DepartmentPage from './Components/DepartmentPage';
 import ChartButton from './Components/ChartButton';
+import ChartSection from './Components/ChartSection';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
   const [department, setDepartment] = useState("");
   const [sections, setSections] = useState(1);
   const [dept, setDept] = useState(false);
+  const [chart, setChart] = useState(true);
 
   const C = {
     bg: "#f7fafc",
@@ -89,6 +91,14 @@ function App() {
     setDept(false);
   }
 
+  function toggleChart() {
+    if (chart === false) {
+      setChart(true);
+    } else {
+      setChart(false);
+    }
+  }
+
   return (
     <>
       {dept && departments.map((dept, index) => (index === sections ? <DepartmentPage key={dept.id} dept={dept} closeDepartment={closeDepartment} openModal={openModal} /> : null))}
@@ -96,7 +106,8 @@ function App() {
       {display && <Booking closeModal={closeModal} display={display} chooseDepartment={chooseDepartment} department={department} />}
       {display2 && <HospitalCard closeModal2={closeModal2} display2={display2} chooseDepartment={chooseDepartment} department={department} />}
       {!dept && <HeroSection openModal={openModal} display={display} />}
-      {!dept && <ChartButton />}
+      {!chart && <ChartSection C={C} chart={chart} setChart={setChart} />}
+      <ChartButton toggleChart={toggleChart} />
       {!dept && <Services C={C} />}
       {!dept && <HospitalVideo />}
       {!dept && <DepartmentList C={C} departments={departments} dept={dept} displayDepartment={displayDepartment} />}
