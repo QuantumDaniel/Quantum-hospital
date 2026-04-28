@@ -65,10 +65,21 @@
     background: rgba(0, 0, 0, 0.3) !important;
     border-radius: 30px 30px 0 30px !important;
     margin-top: 10px;
-    width: 20%;
+    width: fit-content;
     margin-left: auto;
     margin-right: 15px;
     text-justify: center;
 
 
+
+}
+
+.charts {
+    overflow-y: auto;
+    height: 200px;
+    padding-bottom: 20px;
+}
+
+.charts::-webkit-scrollbar {
+    display: none;
 }
