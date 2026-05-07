@@ -1,6 +1,6 @@
 
 import './ChartSection.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 function ChartSection({ C, chart, setChart }) {
     const [input, setInput] = useState('');
     const [position, setPosition] = useState(false);
@@ -8,20 +8,10 @@ function ChartSection({ C, chart, setChart }) {
     const [machine, setMachine] = useState('Typing...');
     const greetings = ['hi', 'hello', 'hey'];
     const today = new Date();
-
-
-
-    const [chats, setChats] = useState([
-
-
-
-
-
-    ]);
+    const [chats, setChats] = useState([]);
     const [disabled, setDisabled] = useState(false);
     const [inputdis, setIputDis] = useState('➤');
-
-
+    const bottomRef = useRef(null);
 
     function closeButton() {
         setChart('false')
@@ -98,7 +88,7 @@ function ChartSection({ C, chart, setChart }) {
             ]);
 
 
-        }, 1000);
+        }, 0);
         setInput('');
         setDisabled(true);
         setIputDis('🍳');
@@ -123,6 +113,13 @@ function ChartSection({ C, chart, setChart }) {
         setIputDis('🍳');
 
     }, []);
+
+    useEffect(() => {
+        bottomRef.current.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }, [chats]);
+
     return (
 
         <div className=" modal-dialog-centered modal-lg modal-dialog-scrollable">
@@ -163,7 +160,10 @@ function ChartSection({ C, chart, setChart }) {
                             </div>
                         )
                     })*/}
+                    <div className="chat-scroll" ref={bottomRef}></div>
                 </div>
+
+
 
                 <div style={{ padding: "8px 16px 16px", display: "flex", gap: 8, background: C.white, borderRadius: "0 0 20px 20px" }} className={`input-container ${position ? 'input-container2' : ''}`}>
 
