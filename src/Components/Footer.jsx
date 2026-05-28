@@ -25,13 +25,14 @@ function Footer({ C, departments }) {
                     <div>
                         <div style={{ fontWeight: 600, marginBottom: 16, color: C.goldLight, fontSize: 14 }}>Departments</div>
                         {departments.slice(0, 5).map(d => (
-                            <div key={d.id} onClick={() => openDept(d)} style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginBottom: 8, cursor: "pointer", transition: "color 0.2s" }}
+                            <div key={d.id} onClick={ } style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginBottom: 8, cursor: "pointer", transition: "color 0.2s" }}
                                 onMouseEnter={e => { e.target.style.color = C.tealLight; }}
                                 onMouseLeave={e => { e.target.style.color = "rgba(255,255,255,0.45)"; }}>
                                 {d.name}
                             </div>
                         ))}
                     </div>
+
                     <div>
                         <div style={{ fontWeight: 600, marginBottom: 16, color: C.goldLight, fontSize: 14 }}>Patient Services</div>
                         {actions.map(s => (

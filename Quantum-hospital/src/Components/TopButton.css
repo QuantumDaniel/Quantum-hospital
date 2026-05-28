@@ -1,0 +1,9 @@
+.top-button {
+    position: fixed;
+    right: 120px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    z-index: 1000;
+}

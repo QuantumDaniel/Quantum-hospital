@@ -1,0 +1,16 @@
+@media (max-width:431px) {
+    .dept-des {
+        font-size: 27px !important;
+
+    }
+
+    .click-des {
+        font-size: 12px;
+    }
+
+    .dept-container {
+
+        margin: 0 40px;
+
+    }
+}

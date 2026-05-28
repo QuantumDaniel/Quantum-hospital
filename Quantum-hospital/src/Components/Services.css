@@ -1,0 +1,25 @@
+@media (max-width:431px) {
+
+
+    .every {
+        font-size: 12px;
+
+
+    }
+
+    .grid-service {
+
+        margin-left: 20px;
+
+
+    }
+
+    .service-container {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+        padding: 20px;
+        margin-right: 20px;
+
+    }
+
+
+}

@@ -1,17 +1,22 @@
 
 import './ChartSection.css';
 import { useEffect, useState, useRef } from 'react';
+import spinner from '../assets/spinner.svg';
 function ChartSection({ C, chart, setChart }) {
+    const savedChats = JSON.parse(localStorage.getItem('chats'));
     const [input, setInput] = useState('');
     const [position, setPosition] = useState(false);
     const [text, setText] = useState('Move input to top');
     const [machine, setMachine] = useState('Typing...');
     const greetings = ['hi', 'hello', 'hey'];
     const today = new Date();
-    const [chats, setChats] = useState([]);
+    const [chats, setChats] = useState(savedChats || []);
     const [disabled, setDisabled] = useState(false);
     const [inputdis, setIputDis] = useState('➤');
     const bottomRef = useRef(null);
+    const [spin, setSpin] = useState(<img src={spinner} alt="spin" />)
+    const [isSpinning, setIsSpinning] = useState(true);
+
 
     function closeButton() {
         setChart('false')
@@ -30,7 +35,7 @@ function ChartSection({ C, chart, setChart }) {
     };
 
 
-
+    //enalbe/disable send button when text is empty in the input field
     function targetChange(e) {
         //  const value = e.target.value.toLowerCase();
         const isGreeting = greetings.some(word =>
@@ -60,35 +65,52 @@ function ChartSection({ C, chart, setChart }) {
             setMachine(`The hospital is located oppoiste Aveman's Hotel. Wuse, Abuja `)
         }
 
+        else if (e.target.value.toLowerCase().includes('thank')) {
+            setMachine('Your are welcome! feel free to ask any question')
+        }
+        else if (e.target.value.toLowerCase().includes('ok')) {
+            setMachine('Great! 👍')
+        }
         else {
             setMachine(`Hello! 👋 I'm QuantumBot, your hospital assistant.How can I help you today ?`)
         }
 
-
-
-
         setInput(e.target.value);
-
-
     };
 
+    //add charts
 
-    function sendData() {
+    async function sendData() {
 
 
         setChats(prev => [
             ...prev,
             { text: input, id: 'user' }
         ]);
+
+        setChats(prev => [
+            ...prev,
+            { text: 'Loading...', id: 'bot' }
+        ]);
+
         setTimeout(() => {
 
-            setChats(prev => [
-                ...prev,
-                { text: machine, id: 'bot' }
-            ]);
+            setChats(prev => {
+                const updated = [...prev];
+
+                updated[updated.length - 1] = {
+                    text: machine,
+                    id: 'bot'
+                };
+
+                return updated;
+            });
+
+        }, 2000);
+        // const response = await axios.get('https://api.example.com');
 
 
-        }, 0);
+
         setInput('');
         setDisabled(true);
         setIputDis('🍳');
@@ -100,12 +122,17 @@ function ChartSection({ C, chart, setChart }) {
 
     };
 
+
+    //send data on key press(enter key)
+
     function keyPress(e) {
         if (e.key === 'Enter') {
             sendData();
         }
 
     };
+
+    //enable/disable send button
 
     useEffect(() => {
 
@@ -114,11 +141,16 @@ function ChartSection({ C, chart, setChart }) {
 
     }, []);
 
+    //make chart scrollto view
     useEffect(() => {
+        setMachine('Typing...')
         bottomRef.current.scrollIntoView({
             behavior: 'smooth'
         });
+        localStorage.setItem('chats', JSON.stringify(chats))
     }, [chats]);
+
+
 
     return (
 
@@ -170,7 +202,10 @@ function ChartSection({ C, chart, setChart }) {
                     <input onKeyDown={keyPress} value={input} onChange={targetChange} placeholder="Type your message..." style={{ flex: 1, background: C.bgAlt, border: `1px solid ${C.border}`, borderRadius: 25, padding: "10px 16px", color: C.text, fontSize: 13, outline: "none" }} type='text' />
                     <button disabled={disabled} onClick={sendData} style={{ width: 42, height: 42, borderRadius: "50%", background: `linear-gradient(135deg, ${C.teal}, ${C.tealLight})`, border: "none", cursor: "pointer", fontSize: 18, flexShrink: 0, color: C.white }}>{inputdis}</button>
                 </div>
+
                 <div className="change-position" onClick={changePosition}>{text}</div>
+
+
 
             </div>
 
