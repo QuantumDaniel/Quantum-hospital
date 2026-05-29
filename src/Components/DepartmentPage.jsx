@@ -13,12 +13,12 @@ function DepartmentPage({ dept, closeDepartment, openModal }) {
         />
         <div className="hero-overlay" />
 
-        <div className="hero-top">
+        <div className="hero-top back">
           <button className="back-btn" onClick={closeDepartment}>← Back</button>
         </div>
 
         <div className="hero-content">
-          <div className="hero-icon">{dept.icon}</div>
+          <div className="hero-icon ">{dept.icon}</div>
           <div className="hero-tag">{dept.tagline}</div>
           <h1 className="hero-title">{dept.name}</h1>
         </div>

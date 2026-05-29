@@ -6,9 +6,14 @@ import './Header.css'
 
 
 
-function Header({ openModal2, openModal }) {
+function Header({ openModal2, openModal, displayDepartment, departments }) {
     const [expanded, setExpanded] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const departs = ["Radiology Department", "Surgical Ward", "Theatre Department", "OPD", "Pharmacy", "Pediatrics", "Maternity Ward", "Antenatal Clinic", "Adult Medical Ward", "Administrative Dept."]
+
+    function check() {
+        alert('opened');
+    }
 
     useEffect(() => {
         function checkScroll() {
@@ -57,11 +62,10 @@ function Header({ openModal2, openModal }) {
                             </a>
 
                             <ul className="dropdown-menu hospital-dropdown">
+                                {departs.map((deps, i) => (
 
-                                <li><a className="dropdown-item" href="#">Radiology</a></li>
-                                <li><a className="dropdown-item" href="#">Surgery</a></li>
-                                <li><a className="dropdown-item" href="#">Pediatrics</a></li>
-                                <li><a className="dropdown-item" href="#">Pharmacy</a></li>
+                                    <li onClick={() => { displayDepartment(i) }}><a className="dropdown-item" href="#">{deps}</a></li>
+                                ))}
 
                             </ul>
 

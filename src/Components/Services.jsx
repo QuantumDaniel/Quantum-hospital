@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import './Services.css';
 
 function Services({ C }) {
     const [services, setServices] = useState([{
@@ -57,9 +58,9 @@ function Services({ C }) {
                 <div style={{ textAlign: "center", marginBottom: 56 }}>
                     <div style={{ display: "inline-block", background: C.tealPale, border: `1px solid ${C.teal}40`, color: C.teal, padding: "5px 18px", borderRadius: 20, fontSize: 12, marginBottom: 16, letterSpacing: 1, textTransform: "uppercase", fontWeight: 600 }}>What We Offer</div>
                     <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 700, color: C.navy }}>Comprehensive Hospital Services</h2>
-                    <p style={{ color: C.textMuted, maxWidth: 480, margin: "16px auto 0", lineHeight: 1.8 }}>Everything you need for your health and wellbeing, all under one roof.</p>
+                    <p className="every" style={{ color: C.textMuted, maxWidth: 480, margin: "16px auto 0", lineHeight: 1.8 }}>Everything you need for your health and wellbeing, all under one roof.</p>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }} >
+                <div className="service-container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }} >
                     {services.map(s => (
                         <div className="grid-service" ref={ref} key={s.title} style={{
                             background: C.bg, border: `1px solid ${C.border}`, borderRadius: 20, padding: 26, transition: "all 0.3s", cursor: "default", opacity: visible ? 1 : 0,

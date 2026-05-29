@@ -36,7 +36,7 @@ const HospitalVideo = () => {
                         <h2 className="fw-bold mb-2" style={{ color: "#0a2a6e" }}>
                             About Quantum Hospital
                         </h2>
-                        <p className="text-muted">
+                        <p className="text-muted message">
                             Discover world-class healthcare services delivered with compassion and precision.
                         </p>
                     </div>
@@ -149,11 +149,11 @@ const HospitalVideo = () => {
                         </div>
 
                         {/* Feature Pills below the video */}
-                        <div className="d-flex flex-wrap justify-content-center gap-2 mt-4">
+                        <div className="d-flex flex-wrap justify-content-center gap-2 mt-4 service">
                             {["Emergency Care", "Diagnostics & Imaging", "Surgery", "Maternity", "Pharmacy", "Outpatient"].map((service) => (
                                 <span
                                     key={service}
-                                    className="badge rounded-pill px-3 py-2"
+                                    className="badge rounded-pill px-3 py-2 "
                                     style={{ backgroundColor: "#e8f0fe", color: "#0a2a6e", fontSize: "0.78rem", fontWeight: 500 }}
                                 >
                                     {service}

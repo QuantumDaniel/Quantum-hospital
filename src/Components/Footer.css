@@ -1,0 +1,30 @@
+@media (max-width:431px) {
+    .contact {
+        font-size: 10px !important;
+        margin-left: 40px;
+    }
+
+    .dept {
+        font-size: 10px !important;
+    }
+
+    .action {
+        font-size: 10px;
+        margin-right: 40px;
+    }
+
+    .footer-con {
+        gap: 20px !important;
+    }
+
+    .icon {
+        font-size: 10px !important;
+        margin-left: 13px;
+    }
+
+    .details {
+        font-size: 5px !important;
+        margin-left: 20px;
+    }
+
+}

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import './DepartmentList.css';
 
 function DepartmentList({ C, departments, displayDepartment }) {
 
@@ -24,10 +25,10 @@ function DepartmentList({ C, departments, displayDepartment }) {
                     transition: "opacity 0.6s ease, transform 0.6s ease",
                 }}>
                     <div style={{ display: "inline-block", background: C.tealPale, border: `1px solid ${C.teal}40`, color: C.teal, padding: "5px 18px", borderRadius: 20, fontSize: 12, marginBottom: 16, letterSpacing: 1, textTransform: "uppercase", fontWeight: 600 }}>Our Departments</div>
-                    <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 700, color: C.navy }}>Specialised Care for Every Need</h2>
-                    <p style={{ color: C.textMuted, maxWidth: 480, margin: "16px auto 0", lineHeight: 1.8 }}>Click on any department to explore the full range of services we provide.</p>
+                    <h2 className="dept-des" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 700, color: C.navy }}>Specialised Care for Every Need</h2>
+                    <p className="click-des" style={{ color: C.textMuted, maxWidth: 480, margin: "16px auto 0", lineHeight: 1.8 }}>Click on any department to explore the full range of services we provide.</p>
                 </div>
-                <div style={{
+                <div className="dept-container" style={{
                     display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 24
                 }}>
                     {departments.map((dept, i) => (

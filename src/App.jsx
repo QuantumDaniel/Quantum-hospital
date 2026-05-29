@@ -13,6 +13,8 @@ import HospitalCard from './Components/HospitalCard';
 import DepartmentPage from './Components/DepartmentPage';
 import ChartButton from './Components/ChartButton';
 import ChartSection from './Components/ChartSection';
+import TopButton from './Components/TopButton';
+
 
 function App() {
 
@@ -102,17 +104,18 @@ function App() {
   return (
     <>
       {dept && departments.map((dept, index) => (index === sections ? <DepartmentPage key={dept.id} dept={dept} closeDepartment={closeDepartment} openModal={openModal} /> : null))}
-      {!dept && <Header openModal={openModal} openModal2={openModal2} display={display} />}
+      {!dept && <Header departments={departments} displayDepartment={displayDepartment} openModal={openModal} openModal2={openModal2} display={display} />}
       {display && <Booking closeModal={closeModal} display={display} chooseDepartment={chooseDepartment} department={department} />}
       {display2 && <HospitalCard closeModal2={closeModal2} display2={display2} chooseDepartment={chooseDepartment} department={department} />}
-      {!dept && <HeroSection openModal={openModal} display={display} />}
+      {!dept && <HeroSection openModal={openModal} openModal2={openModal2} display={display} />}
       {!chart && <ChartSection C={C} chart={chart} setChart={setChart} />}
+      <TopButton />
       <ChartButton toggleChart={toggleChart} />
       {!dept && <Services C={C} />}
       {!dept && <HospitalVideo />}
       {!dept && <DepartmentList C={C} departments={departments} dept={dept} displayDepartment={displayDepartment} />}
       {!dept && <Cta C={C} openModal={openModal} openModal2={openModal2} />}
-      {!dept && <Footer C={C} departments={departments} />}
+      {!dept && <Footer C={C} departments={departments} displayDepartment={displayDepartment} />}
     </>
   )
 }
