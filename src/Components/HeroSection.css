@@ -20,6 +20,10 @@
 
 }
 
+.hero-badge {
+    background: white !important;
+}
+
 .anim-3-div {
 
 
@@ -203,7 +207,6 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: rgba(255, 255, 255, .10);
         border: 1px solid rgba(255, 255, 255, .20);
         padding: 6px 18px;
         border-radius: 20px;

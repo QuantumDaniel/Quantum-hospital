@@ -58,7 +58,7 @@ function HeroSection({ openModal, openModal2 }) {
                             </span>
                         </h1>
 
-                        <div className="hero-badge anim-1 text-body border-secondary "> <span className="hero-badge-dot top-2 "></span> Now accepting new patients &nbsp;·&nbsp; Open 24/7 </div>
+                        <div className="hero-badge  anim-1 text-body border-secondary "> <span className="hero-badge-dot top-2 "></span> Now accepting new patients &nbsp;·&nbsp; Open 24/7 </div>
 
                         <div className="hero-btns anim-4 py-4 btns">
                             <a href="#modal-appt" className="btn-hero-primary open-app" onClick={openModal}>📅 Book Appointment</a>
