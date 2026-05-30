@@ -14,9 +14,9 @@
 }
 
 .hero-stats {
-    width: clamp(80%, 80vw, 140%);
+    width: clamp(60%, 80vw, 140%);
     margin-top: -10px;
-    margin-left: clamp(25px, 10vw, 50px);
+    margin-left: clamp(70px, 10vw, 50px) !important;
 
 }
 
