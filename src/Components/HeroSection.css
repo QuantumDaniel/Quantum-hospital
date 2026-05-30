@@ -410,9 +410,10 @@
 
     .animate {
         font-size: 5px !important;
-        margin-left: 40px;
         display: flex;
         flex-direction: column;
+        padding: 10px 0;
+
     }
 
     .stat-val {

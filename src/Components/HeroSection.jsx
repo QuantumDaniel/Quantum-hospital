@@ -66,10 +66,10 @@ function HeroSection({ openModal, openModal2 }) {
                         </div>
                         <div className="hero-stats anim-5 bg-light px-2  rounded-4 text-center py-2 mb-6 ">
                             <div className="animate bg-info ">
-                                <div><div className="stat-val">{patients}+</div><div className="stat-label text-dark">Patients Served</div></div>
-                                <div><div className="stat-val">{experts}+</div><div className="stat-label text-dark">Medical Experts</div></div>
-                                <div><div className="stat-val">10</div><div className="stat-label text-dark">Departments</div></div>
-                                <div><div className="stat-val">24/7</div><div className="stat-label text-dark">Emergency Care</div></div>
+                                <div><div className="stat-val text-white">{patients}+</div><div className="stat-label text-dark">Patients Served</div></div>
+                                <div><div className="stat-val text-white">{experts}+</div><div className="stat-label text-dark">Medical Experts</div></div>
+                                <div><div className="stat-val text-white">10</div><div className="stat-label text-dark">Departments</div></div>
+                                <div><div className="stat-val text-white">24/7</div><div className="stat-label text-dark">Emergency Care</div></div>
                             </div>
                         </div>
                     </div>
