@@ -1,0 +1,306 @@
+.text {
+    margin-top: 300px;
+
+}
+
+.hospital {
+    color: bisque;
+}
+
+.image {
+    width: 100%;
+    height: 100vh;
+    background: red;
+}
+
+.hero-stats {
+    width: 125%;
+    padding: 0 10px;
+    margin-top: -10px;
+
+
+
+}
+
+.anim-3-div {
+
+
+    margin-left: 10%;
+    margin-right: 10%;
+
+
+
+}
+
+.hero {
+    height: fit-content !important;
+}
+
+.sub {
+    padding-top: 65px;
+
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.flex-container .image-con {
+    width: 70%;
+    min-width: 60%;
+
+}
+
+
+@media (min-width:1100px) {
+    .anim-1 {
+        position: absolute;
+
+
+
+
+
+    }
+
+    .animate {
+        gap: 40px !important;
+        padding: 0 10px !important;
+        border-radius: 15px;
+
+    }
+
+    .anim-3-div {
+
+
+        margin-left: 0%;
+        margin-right: 0%;
+
+
+    }
+
+    .animate {
+        display: flex;
+        flex-direction: row !important;
+
+    }
+
+
+
+
+
+
+}
+
+.type-con {
+    display: absolute;
+}
+
+@media (max-width:1100px) and (min-width:650px) {
+
+    .anim-1 {
+        position: absolute;
+
+
+
+    }
+
+
+
+    .animate {
+        display: flex;
+        flex-direction: row !important;
+
+    }
+}
+
+
+@media (max-width:821px) and (min-width:800px) {
+    .anim-1 {
+        position: absolute;
+
+        margin-left: 160px;
+        font-size: 20px;
+    }
+
+    .anim-2 {
+        position: absolute;
+        margin-top: -300px !important;
+        margin-left: 65px;
+        font-size: 70px !important;
+
+    }
+
+    .anim-3-div {
+
+
+        margin-left: 2px;
+        margin-right: 2px;
+
+    }
+
+
+
+
+}
+
+
+@media (max-width:650px) {
+    .anim-3 {
+        font-size: 10px;
+
+    }
+
+    .stat-val {
+        font-size: 10px !important;
+    }
+
+    .open-app,
+    .open-card {
+        font-size: 10px !important;
+        padding: 0 15px;
+
+    }
+}
+
+@media (max-width:481px) and (min-width:470px) {
+    .anim-1 {
+        position: absolute;
+
+        margin-left: 90px;
+    }
+
+    .open-app,
+    .open-card {
+        font-size: 10px;
+        margin-left: 30px;
+    }
+
+    .anim-2 {
+        position: absolute;
+        margin-top: -170px;
+        margin-left: 45px;
+        font-size: 50px !important;
+
+    }
+
+    .stat-val {
+        font-size: 15px !important;
+    }
+}
+
+
+
+@media (max-width:431px) {
+    .anim-1 {
+        position: absolute;
+        margin-left: 40px;
+        font-size: 10px;
+
+    }
+
+    .anim-2 {
+        position: absolute;
+        margin-top: -70px;
+        margin-left: 65px;
+        font-size: 30px !important;
+
+    }
+
+    .anim-3 {
+        font-size: 10px;
+        margin-top: 15px;
+
+    }
+
+    .anim-3-div {
+
+        margin-top: 15px;
+
+    }
+
+    .anim-4 {
+        margin-left: 50px;
+    }
+
+    .open-app,
+    .open-card {
+        height: 30px;
+        font-size: x-small;
+    }
+
+    .animate {
+        font-size: 5px !important;
+        margin-left: 40px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stat-val {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:377px) {
+    .anim-1 {
+        position: absolute;
+        margin-left: 50px;
+        font-size: 10px;
+    }
+
+
+
+    .open-app,
+    .open-card {
+
+        height: auto !important;
+        font-size: 10px !important;
+
+
+    }
+
+
+
+    .anim-2 {
+        position: absolute;
+        margin-top: -95px;
+        margin-left: 65px;
+        font-size: 40px !important;
+
+    }
+
+    .anim-3 {
+        font-size: 15px;
+        margin-top: 15px;
+
+    }
+
+    .anim-3-div {
+
+        margin-top: 15px;
+
+    }
+
+    .anim-4 {
+        margin-left: 50px;
+    }
+
+    .open-app,
+    .open-card {
+        height: 30px;
+        font-size: x-small;
+    }
+
+    .animate {
+        font-size: 5px !important;
+        margin-left: 40px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stat-val {
+        font-size: 15px;
+    }
+}

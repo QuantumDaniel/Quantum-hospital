@@ -40,6 +40,17 @@
     font-style: italic;
 }
 
+.clear {
+    position: absolute;
+    bottom: 5px;
+    left: 15%;
+    width: fit-content;
+    text-align: right;
+    cursor: pointer;
+    text-decoration: underline;
+
+}
+
 .input-container2 {
 
     bottom: 250px !important;
