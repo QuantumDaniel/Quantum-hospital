@@ -26,7 +26,11 @@
 
 @media (max-width:360px) {
 
-    .service-title,
+    .service-title {
+        padding: 0 40px;
+        font-size: 15px !important;
+    }
+
     .every {
         padding: 0 40px;
     }
