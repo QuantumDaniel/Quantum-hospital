@@ -24,11 +24,12 @@
 
 }
 
-@media (max-width:360px) {
+@media (max-width:391px) {
 
     .service-title {
         padding: 0 40px;
         font-size: 15px !important;
+
     }
 
     .every {
