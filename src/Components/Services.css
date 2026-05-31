@@ -23,3 +23,12 @@
 
 
 }
+
+@media (max-width:360px) {
+
+    .service-title,
+    .every {
+        padding: 0 40px;
+    }
+
+}
