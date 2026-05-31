@@ -94,3 +94,12 @@
 .charts::-webkit-scrollbar {
     display: none;
 }
+
+@media (max-width: 360px) {
+    .chart-modal {
+        margin-right: -23px !important;
+        border-width: 700px;
+        border-style: solid;
+        background-color: red !important;
+    }
+}
