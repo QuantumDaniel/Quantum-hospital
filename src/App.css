@@ -7,6 +7,8 @@
 
    html {
        scroll-behavior: smooth;
+       overflow-x: hidden;
+       width: 100%;
    }
 
    :root {
@@ -451,6 +453,7 @@
        color: #fff;
        font-style: normal;
        min-height: clamp(270px, 30vh, 500px) !important;
+       padding-right: 20px !important;
 
    }
 

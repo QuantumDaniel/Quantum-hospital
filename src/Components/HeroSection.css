@@ -550,3 +550,18 @@
         min-height: 90vh;
     }
 }
+
+@media (max-width:360px) {
+
+    .hero-badge,
+    .hero-btns,
+    .hero-badge {
+        margin-left: 80px !important;
+
+    }
+
+    .hero-stats {
+        margin-left: 90px !important;
+
+    }
+}

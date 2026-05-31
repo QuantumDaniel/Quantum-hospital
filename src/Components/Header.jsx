@@ -64,7 +64,7 @@ function Header({ openModal2, openModal, displayDepartment, departments }) {
                             <ul className="dropdown-menu hospital-dropdown">
                                 {departs.map((deps, i) => (
 
-                                    <li onClick={() => { displayDepartment(i) }}><a className="dropdown-item" href="#">{deps}</a></li>
+                                    <li key={i} onClick={() => { displayDepartment(i) }}><a className="dropdown-item" href="#">{deps}</a></li>
                                 ))}
 
                             </ul>
